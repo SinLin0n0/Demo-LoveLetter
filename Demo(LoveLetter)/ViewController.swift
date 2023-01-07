@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UITextFieldDelegate{
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var signature: UITextField!
@@ -22,7 +22,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+                self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
     }
+    @objc func dismissKeyBoard() {
+            self.view.endEditing(true)
+        }
+    
     
     @IBAction func transform(_ sender: UIButton) {
        
